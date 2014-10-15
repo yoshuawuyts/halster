@@ -33,8 +33,8 @@ function Hal(opts) {
 
   this._default = opts.default || function(val) {return val};
   this._stash = opts.invert
-    ? burl(opts)
-    : invert(burl(opts));
+    ? invert(burl(opts))
+    : burl(opts);
 
   return this;
 }

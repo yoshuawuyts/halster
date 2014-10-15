@@ -68,7 +68,7 @@ describe('.set()', function() {
   });
 });
 
-describe('get', function() {
+describe('.get()', function() {
   it('should assert argument types', function() {
     var links = halster({});
     links.get();
@@ -87,4 +87,29 @@ describe('get', function() {
     ln.get({next: true}).should.eql('bar');
     ln.get().should.eql('baz');
   });
-})
+});
+
+describe('invert', function() {
+  it('should correctly invert links', function() {
+    var ln = halster({
+      invert: true,
+      previous: function(val) {
+        return val;
+      },
+      next: function(val) {
+        return val;
+      }
+    });
+
+    ln.set({links: {previous: 123, next: 456}});
+    ln.set({links: {previous: 124, next: 455}});
+
+    ln.get({previous: true}).should.eql(124);
+    ln.get({next: true}).should.eql(455);
+
+    ln.set({links: {previous: 123, next: 456}});
+
+    ln.get({previous: true}).should.eql(124);
+    ln.get({next: true}).should.eql(455);
+  });
+});
