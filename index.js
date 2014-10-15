@@ -49,7 +49,9 @@ function Hal(opts) {
 hal.set = function(val) {
   assert.equal(typeof val, 'object', 'halster: val should be an object');
 
-  var links = val.links || val._links || val;
+  var links = val.links || val._links;
+  if (!links) return;
+
   var prev = links.previous || links._previous;
   var next = links.next || links._next;
 

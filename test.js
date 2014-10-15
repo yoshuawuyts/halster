@@ -43,12 +43,12 @@ describe('.set()', function() {
       .should.throw('halster: val should be an object');
 
     links.set.bind(links, {})
-      .should.throw('halster: previous could not be extracted from data');
+      .should.not.throw('halster: previous could not be extracted from data');
 
-    links.set.bind(links, {previous: 'foo'})
+    links.set.bind(links, {links:{previous: 'foo'}})
       .should.throw('halster: next could not be extracted from data');
 
-    links.set.bind(links, {previous: 'foo', next: 'bar'})
+    links.set.bind(links, {links: {previous: 'foo', next: 'bar'}})
       .should.not.throw('halster: next could not be extracted from data');
   });
 
@@ -58,6 +58,9 @@ describe('.set()', function() {
       .should.not.throw('halster: next could not be extracted from data');
 
     ln.set.bind(ln, {links: {previous: 'foo', next: 'bar'}})
+      .should.not.throw('halster: next could not be extracted from data');
+
+    ln.set.bind(ln, {links: {previous: {url: 'foo'}, next: {url: 'bar'}}})
       .should.not.throw('halster: next could not be extracted from data');
   });
 });
