@@ -55,8 +55,8 @@ hal.set = function(val) {
   var prev = links.previous || links._previous;
   var next = links.next || links._next;
 
-  if ('object' == typeof prev) prev = prev.url || prev._url;
-  if ('object' == typeof next) next = next.url || next._url;
+  if ('object' == typeof prev) prev = prev.url || prev.href;
+  if ('object' == typeof next) next = next.url || next.href;
 
   assert(prev, 'halster: previous could not be extracted from data');
   assert(next, 'halster: next could not be extracted from data');

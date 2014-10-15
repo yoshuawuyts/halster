@@ -62,6 +62,9 @@ describe('.set()', function() {
 
     ln.set.bind(ln, {links: {previous: {url: 'foo'}, next: {url: 'bar'}}})
       .should.not.throw('halster: next could not be extracted from data');
+
+    ln.set.bind(ln, {links: {previous: {href: 'foo'}, next: {href: 'bar'}}})
+      .should.not.throw('halster: next could not be extracted from data');
   });
 });
 
