@@ -13,10 +13,11 @@
     "extract"
   ],
   "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "burl": "^1.0.1",
-    "burl-invert": "^2.0.0",
+    "burl-invert": "^2.0.0"
+  },
+  "devDependencies": {
     "istanbul": "^0.3.2",
     "make-lint": "^1.0.1",
     "mocha": "^1.21.5",
