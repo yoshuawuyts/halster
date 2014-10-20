@@ -55,6 +55,8 @@ hal.set = function(val) {
   var prev = links.previous || links._previous;
   var next = links.next || links._next;
 
+  if (!prev && !next) return;
+
   if ('object' == typeof prev) prev = prev.url || prev.href;
   if ('object' == typeof next) next = next.url || next.href;
 

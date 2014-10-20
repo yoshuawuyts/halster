@@ -45,6 +45,9 @@ describe('.set()', function() {
     links.set.bind(links, {})
       .should.not.throw('halster: previous could not be extracted from data');
 
+    links.set.bind(links, {links: {}})
+      .should.not.throw();
+
     links.set.bind(links, {links:{previous: 'foo'}})
       .should.throw('halster: next could not be extracted from data');
 
